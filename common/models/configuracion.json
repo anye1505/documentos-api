@@ -1,0 +1,52 @@
+{
+  "name": "configuracion",
+  "plural": "configuraciones",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "postgresql": {
+      "schema": "proceso"
+    }
+  },
+  "properties": {
+    "conf_id": {
+      "type": "number",
+      "id": true
+    },
+    "conf_local_carpeta_in": {
+      "type": "string"
+    },
+    "conf_local_carpeta_out": {
+      "type": "string"
+    },
+    "ope_id": {
+      "type": "number"
+    }
+  },
+  "hidden": ["conf_local_carpeta_in", "conf_local_carpeta_out"],
+  "protected": ["conf_local_carpeta_in","conf_local_carpeta_out"],
+  "validations": [],
+  "relations": {
+    "orden": {
+      "type": "hasMany",
+      "model": "orden",
+      "foreignKey": "conf_id",
+      "options": {
+        "disableInclude": false
+      }
+    } ,
+    "empresa": {
+      "model":"empresa",
+      "type": "belongsTo",
+      "foreignKey":"ope_id"
+    } 
+
+  },
+  "acls": [
+  ],
+  "methods": {},
+  "scope": {
+    "limit": 10
+  }
+}

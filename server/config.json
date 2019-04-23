@@ -1,0 +1,82 @@
+{
+  "restApiRoot": "/api",
+  "host": "0.0.0.0",
+  "port": 3000,
+  "remoting": {
+    "context": false,
+    "sharedMethods": {
+        "*": false
+    },
+    "rest": {
+      "handleErrors": false,
+      "normalizeHttpPath": false,
+      "xml": false
+    },
+    "json": {
+      "strict": false,
+      "limit": "20mb"
+    },
+    "urlencoded": {
+      "extended": true,
+      "limit": "20mb"
+    },
+    "cors": false,  
+    "handleErrors": false
+  },
+  "python":{
+    "reporte":{
+      "run_reporte_birt":"/home/documento/apps/run_reporte_birt.py",
+      "run_reporte_excel":"/home/documento/apps/reportes/reporte_excel.py"
+    },
+    "cargo":{
+        "generar":"/home/documento/apps/generar_cargos.py"
+    },
+    "etiqueta":{
+      "generar":"/home/documento/apps/generar_etiquetas.py"
+    },
+    "sim":{
+      "generar":"/home/documento/apps/generar_sim.py"
+    }
+  },
+  "path":{
+    "mensajero":{
+      "foto":"/home/documento/mensajero/foto/"
+    },
+    "prioritario":{
+      "generar":"/mnt/nfs/base_prioritario/"
+    },
+    "recepcion":{
+      "generar":"/mnt/nfs/recepcion/",
+      "descarga_sim":"/mnt/nfs/export/",
+      "descarga_observacion":"/mnt/nfs/observacion/"
+    },
+    "cargo":{
+        "descarga":"/mnt/nfs/cargos/",
+        "etiqueta":"/mnt/nfs/cargos/",
+        "recuperacion":"/mnt/nfs/recuperacion/recuperacion_cargo/"
+    },
+    "sim":{
+      "descarga":"/mnt/nfs/export/"
+    },
+    "cargar_base":[
+      "",
+      "/mnt/nfs/carga_formato1/",
+      "/mnt/nfs/carga_formato2/",
+      "/mnt/nfs/carga_formato3/"
+    ],
+    "guias":{
+      "asignacion_documentos":"/mnt/nfs/asignacion/",
+      "descarga_observacion":"/mnt/nfs/asignacion/observacion/",
+      "descarga_exportar":"/mnt/nfs/reportes/"
+    },
+    "guias_despacho":{
+      "asignacion_documentos":"/mnt/nfs/asignacion/",
+      "descarga_observacion":"/mnt/nfs/asignacion/observacion/",
+      "descarga_exportar":"/mnt/nfs/reportes/"
+    },
+    "gestion":{
+      "descarga_documentos":"/mnt/nfs/descarga_gestion/",
+      "cambio_gestion":"/mnt/nfs/gestion_cliente/"
+    }
+  }
+}

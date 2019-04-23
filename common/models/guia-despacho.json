@@ -1,0 +1,141 @@
+{
+    "name": "guiaDespacho",
+    "plural": "guiasDespacho",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+      "validateUpsert": true,
+      "postgresql": {
+        "schema": "proceso",
+        "table":"guia_despacho"
+      }
+    },
+    "properties": {
+      "gud_id": { "type": "number", "id": true },
+      "gud_numero": { "type": "number" },
+      "suc_id": { "type": "number" },
+      "suc_destino_id": { "type": "number" },
+      "tra_id": { "type": "number" },
+      "gde_id": { "type": "number" },
+      "gud_fecha_creacion": { "type": "Date" },
+      "gud_usuario_crea": { "type": "number" },
+      "gud_usuario_modifica": { "type": "number" },
+      "gud_fecha_modifica": { "type": "Date" },
+      "gud_fecha_despacho": { "type": "Date" },
+      "gud_usuario_despacho": { "type": "number" },
+      "gud_fecha_recepcion": { "type": "Date" },
+      "gud_nro_docs": { "type": "number" },
+      "gud_nro_docs_recibido": { "type": "number" },
+      "gud_nro_docs_pendiente": { "type": "number" },
+      "gud_fecha_eliminado": { "type": "Date" },
+      "gud_usuario_elimina": { "type": "number" }
+    },
+    "validations": [],
+    "relations": {  
+    },
+    "acls": [
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "$everyone",
+        "permission": "ALLOW"
+      },
+      {      
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "$authenticated",
+        "permission": "ALLOW"
+      },
+      {      
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "administrador",
+        "permission": "ALLOW"
+      },
+      {      
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "admin",
+        "permission": "ALLOW"
+      },
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "produccion",
+        "permission": "ALLOW"
+      },
+  
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "distribucion",
+        "permission": "ALLOW",
+        "property":[
+          "consultaMultiple",
+          "consultaNumero",
+          "consultaOrden",
+          "consultaCodigoBarra",
+          "consultaDetalle",
+          "consultaMultipleRecep",
+          "consultaNumeroRecep",
+          "consultaOrdenRecep",
+          "consultaCodigoBarraRecep",
+          "consultaDetalleRecep",
+          "consultaFiltro",
+          "buscar",
+          "guardar",
+          "resetear",
+          "despachar",
+          "asignarRango",
+          "asignarDocumentosFile",
+          "asignarDocumentosValidar",
+          "asignarDocumentos",
+          "asignarDocumentosVarios",
+          "quitarDocumento",
+          "recepcionar",
+          "exportarListaGuias",
+          "exportarListaGuiasDetalle",
+          "ImpimirGuiaDetalle",
+          "exportarListaGuiasRecep",
+          "exportarListaGuiasDetalleRecep",
+          "DescargarExcelGuia"
+        ]
+      },
+      {      
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "jefe_distribucion",
+        "permission": "ALLOW"
+      },
+  
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "ejecutivo",
+        "permission": "DENY",
+        "property":[
+          "eliminar"
+        ]
+      },
+
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "agente",
+        "permission": "DENY",
+        "property":[
+          "eliminar"
+        ]
+      },
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "cliente",
+        "permission": "ALLOW"
+      }
+    ],
+    "methods": {},
+    "scope": {
+      "limit": 10
+    }
+}

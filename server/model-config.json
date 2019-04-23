@@ -1,0 +1,544 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "acl": {
+    "dataSource": "postgres",
+    "public": false
+  },
+  "user": {
+    "dataSource": "postgres",
+    "public": true,
+    "options": {
+      "realmRequired": true,
+      "realmDelimiter": ":",
+      "remoting": {
+        "sharedMethods": {
+          "count":true,
+          "login": true,
+          "logout": true,
+          "create":true,
+          "find":true,
+          "findById":true,
+          "resetPassword":true,
+          "exists":true,
+          "prototype.patchAttributes":true,
+          "buscar":true
+        }
+      }
+    }
+  },
+  "accessToken": {
+    "dataSource": "postgres",
+    "public": false
+  },
+  "role": {
+    "dataSource": "postgres",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "find": true
+        }
+      }
+    }
+  },
+  "roleMapping": {
+    "dataSource": "postgres",
+    "public": true,
+    "options": {
+      "remoting": {
+          "sharedMethods": {
+            "create":true,
+            "deleteById":true,
+            "find": true,
+            "getroles":true
+          }
+        }
+      }
+  },
+
+
+
+  "empresa": {
+    "dataSource": "postgres",
+    "public": true,
+    "options": {
+      "remoting": {
+          "sharedMethods": {
+            "findById":true,
+            "count":true,
+            "find": true,
+            "consumo":true,
+            "upload":true,
+            "create":true,
+            "operador":true,
+            "cliente":true,
+            "distrito":true,
+            "formato":true,
+            "mensajero":true,
+            "mensajeroid":true,
+            "courierLogo":true
+          }
+        }
+      }
+  },
+
+  "persona": {
+    "dataSource": "postgres",
+    "public": true,
+    "options": {
+      "remoting": {
+          "sharedMethods": {
+            "findById":true,
+            "count":true,
+            "find": true
+          }
+        }
+      }
+  },
+
+  "mensajero": {
+    "dataSource": "postgres",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "count":true,
+          "find": true,
+          "crear":true,
+          "actualizar":true,
+          "foto":true,
+          "mensajerobysuc":true,
+          "buscar":true
+        }
+      }
+    }
+  },
+  
+  "sucursal": {
+    "dataSource": "postgres",
+    "public": true,
+    "options": {
+      "remoting": {
+          "sharedMethods": {
+            "findById":true,
+            "count":true,
+            "find": true,
+            "despachador":true,
+            "sucursales":true,
+            "sucursalesRecep":true,
+            "distritos":true,
+            "cuadrantes":true,
+            "transportista":true,
+            "sucursalseleccionada":true
+          }
+        }
+      }
+  },
+
+  "orden": {
+    "dataSource": "postgres",
+    "public": true,
+    "options": {
+      "remoting": {
+          "sharedMethods": {
+            "buscar":true,
+            "contar":true,
+            "consumo":true,
+            "upload":true,
+            "uploadBase":true,
+            "generarOP":true,
+            "generarEtiqueta":true,
+            "generarOPapido":true,
+            "enotriaWs":true,
+            "recepcionArchivo":true,
+            "basePrioritario":true,
+            "eliminar":true,
+            "exportarListaOS":true,
+            "cargarbaseformato":true,
+            "consultaMultiple":true
+          }
+        }
+      }
+  },
+
+  "ordenEstado": {
+    "dataSource": "postgres",
+    "public": true,
+    "options": {
+      "remoting": {
+          "sharedMethods": {
+            "find":true
+          }
+        }
+      }
+  },
+
+  "descarga": {
+    "dataSource": "postgres",
+    "public": true,
+    "options": {
+      "remoting": {
+          "sharedMethods": {
+            "token":true,
+            "download":true
+          }
+        }
+      }
+  },
+
+  "tarea": {
+    "dataSource": "postgres",
+    "public": true,
+    "options": {
+      "remoting": {
+          "sharedMethods": {
+            "reporte":true,
+            "find":true,
+            "count":true
+          }
+        }
+      }
+  },
+
+  "tareaTipo": {
+    "dataSource": "postgres",
+    "public": true,
+    "options": {
+      "remoting": {
+          "sharedMethods": {
+            "find":true
+          }
+        }
+      }
+  },
+
+  "configuracion":{
+    "dataSource":"postgres",
+    "public":false,    
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+        }
+      }
+    }
+  },
+
+  "cliente":{
+    "dataSource":"postgres",
+    "public":true,    
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "find":true,
+          "count":true,
+          "create":true,
+          "crear":true,
+          "exportarexcel": true
+        }
+      }
+    }
+  },
+
+  "producto": {
+    "dataSource": "postgres",
+    "public": true,
+    "options": {
+      "remoting": {
+          "sharedMethods": {
+            "findById":true,
+            "count":true,
+            "find": true,
+            "create":true,
+            "actualizar":true
+          }
+        }
+      }
+  },
+  "tipoCargo": {
+    "dataSource": "postgres",
+    "public": true,
+    "options": {
+      "remoting": {
+          "sharedMethods": {
+            "count":true,
+            "find": true
+          }
+        }
+      }
+  },
+  "tipoEtiqueta": {
+    "dataSource": "postgres",
+    "public": true,
+    "options": {
+      "remoting": {
+          "sharedMethods": {
+            "count":true,
+            "find": true
+          }
+        }
+      }
+  },
+  "modeloDistribucion": {
+    "dataSource": "postgres",
+    "public": true,
+    "options": {
+      "remoting": {
+          "sharedMethods": {
+            "count":true,
+            "find": true
+          }
+        }
+      }
+  },
+  "reglaDistribucion": {
+    "dataSource": "postgres",
+    "public": true,
+    "options": {
+      "remoting": {
+          "sharedMethods": {
+            "count":true,
+            "find": true,
+            "actualizar":true,
+            "crear":true,
+            "eliminar":true
+          }
+        }
+      }
+  },
+  "ubigeo": {
+    "dataSource": "postgres",
+    "public": true,
+    "options": {
+      "remoting": {
+          "sharedMethods": {
+            "find":true
+          }
+        }
+      }
+  },
+
+
+
+  "cargo": {
+    "dataSource": "postgres",
+    "public": true,
+    "options": {
+      "remoting": {
+          "sharedMethods": {
+            "findById":true,
+            "count":true,
+            "find": true,
+            "generar":true
+          }
+        }
+      }
+  },
+
+  "guiaEstado": {
+    "dataSource": "postgres",
+    "public": true,
+    "options": {
+      "remoting": {
+          "sharedMethods": {
+            "find":true
+          }
+        }
+      }
+  },
+  "guia": {
+    "dataSource": "postgres",
+    "public": true,
+    "options": {
+      "remoting": {
+          "sharedMethods": {
+            "buscar": true,
+            "consultaMultiple": true,
+            "consultaNumero": true,
+            "consultaOrden": true,
+            "consultaCodigoBarra": true,
+            "consultaDetalle": true,
+            "guardar": true,
+            "eliminar": true,
+            "resetear": true,
+            "entregar": true,
+            "asignarRango": true,
+            "asignarDocumentosFile": true,
+            "asignarDocumentos": true,
+            "quitarDocumento": true,
+            "asignarDocumentosValidar": true,
+            "asignarDocumentosVarios": true,
+            "ImpGuiaDetalle": true,
+            "ImpGuiaPendientes": true,
+            "ImpGuiaNoPermitida": true,
+            "exportarListaGuias": true,
+            "exportarListaGuiasDetalle": true,
+            "ImpimirGuiaDetalle": true,
+            "consultaFiltro": true,
+            "DescargarExcelGuia":true
+          }
+        }
+      }
+  },
+  "tipoReseteo": {
+    "dataSource": "postgres",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "lista":true
+        }
+      }
+    }
+  },
+  "documentoReseteo": {
+    "dataSource": "postgres",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "consultaMultiple":true,
+          "consultarCodigoBarras":true,
+          "registrarCabecera":true,
+          "registrarDetalle":true
+        }
+      }
+    }
+  },
+  "guiaDespachoEstado": {
+    "dataSource": "postgres",
+    "public": true,
+    "options": {
+      "remoting": {
+          "sharedMethods": {
+            "find":true
+          }
+        }
+      }
+  },
+  "guiaDespacho": {
+    "dataSource": "postgres",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "buscar": true,
+          "consultaMultiple": true,
+          "consultaNumero": true,
+          "consultaOrden": true,
+          "consultaCodigoBarra": true,
+          "consultaDetalle": true,
+          "guardar": true,
+          "eliminar": true,
+          "resetear": true,
+          "entregar": true,
+          "asignarRango": true,
+          "asignarDocumentosFile": true,
+          "asignarDocumentos": true,
+          "quitarDocumento": true,
+          "asignarDocumentosValidar": true,
+          "asignarDocumentosVarios": true,
+          "ImpGuiaDetalle": true,
+          "ImpGuiaPendientes": true,
+          "ImpGuiaNoPermitida": true,
+          "exportarListaGuias": true,
+          "exportarListaGuiasDetalle": true,
+          "ImpimirGuiaDetalle": true,
+          "despachar": true,
+          "consultaMultipleRecep": true,
+          "consultaNumeroRecep": true,
+          "consultaOrdenRecep": true,
+          "consultaCodigoBarraRecep": true,
+          "consultaDetalleRecep": true,
+          "recepcionar": true,
+          "exportarListaGuiasRecep": true,
+          "exportarListaGuiasDetalleRecep": true,
+          "consultaFiltro": true,
+          "DescargarExcelGuia":true
+        }
+      }
+    }
+  },
+  "noClasificado": {
+    "dataSource": "postgres",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "consultaMultiple": true,
+          "consultaDetalle": true,
+          "consultarCodigoBarra": true,
+          "grabarDetalle":true,
+          "grabarCabecera":true
+        }
+      }
+    }
+  },
+  "gestion": {
+    "dataSource": "postgres",
+    "public": true,
+    "options": {
+      "remoting": {
+          "sharedMethods": {
+            "motivo": true,
+            "motivoid": true,
+            "descargardocumentos": true,
+            "descargarDocumentosFile": true,
+            "descargarMasivoDocumentosFile": true,
+            "actualizargestion": true,
+            "actualizargestionFile":true,
+            "descargaValidar":true,
+            "reportemensajero":true,
+            "exportarexcel": true,
+            "reportetxt": true,
+            "couriers":true,
+            "productos":true,
+            "getordenes":true,
+            "cerrar":true,
+            "abrir":true,
+            "listagestiones":true,
+            "validarcodigobarra":true,
+            "actualizarurlimagen":true,
+            "reportemensajerocontrol":true,
+            "reporteclienteproceso":true,
+            "reportemensajeropendiente":true,
+            "descargaValidarMultiple":true,
+            "exportarexcelmensajero":true,
+            "reporteagentecontrol":true,
+            "reporteagentependiente":true,
+            "listordenes":true,
+            "reportetxt1":true,
+            "getordeneslista":true,
+            "exportarexcelmensajerodetallado":true
+          }
+        }
+      }
+  },
+  "consultadocumento": {
+    "dataSource": "postgres",
+    "public": true,
+    "options": {
+      "remoting": {
+          "sharedMethods": {
+            "buscar": true,
+            "detalle": true,
+            "buscar_archivo": true,
+            "porDestinatario": true,
+            "buscarbasico":true
+          }
+        }
+      }
+  }
+}

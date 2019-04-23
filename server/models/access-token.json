@@ -1,0 +1,27 @@
+{
+  "name": "accessToken",
+  "base": "AccessToken",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "postgresql": {
+      "schema": "seguridad"
+    }
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "foreignKey": "userId",
+      "idName": "id",
+      "polymorphic": {
+        "idType": "string",
+        "foreignKey": "userId",
+        "discriminator": "principalType"
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

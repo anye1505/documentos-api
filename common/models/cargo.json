@@ -1,0 +1,139 @@
+{
+  "name": "cargo",
+  "plural": "cargos",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "postgresql": {
+      "schema": "cargo"
+    }
+  },
+  "properties": {
+    "car_id": {
+      "type": "number",
+      "id": true
+    },
+    "car_nombre": {
+      "type": "string"
+    },
+    "car_path": {
+      "type": "string"
+    },
+    "car_archivo_nombre": {
+      "type": "string"
+    },
+    "car_estado": {
+      "type": "string"
+    },
+    "car_file_upload":{
+      "type":"string"
+    },
+    "car_fecha_creado": {
+      "type": "date"
+    },
+    "car_nro_documentos": {
+      "type": "number"
+    },
+    "user_id": {
+      "type": "number"
+    },
+    "suc_id": {
+      "type": "number"
+    }
+  },
+  "hidden": ["car_file_upload","car_path","car_archivo_nombre"],
+  "protected": [],
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "user_id"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    },
+
+
+    {
+      "principalType": "ROLE",
+      "principalId": "administrador",
+      "permission": "ALLOW",
+      "property":[
+        "generar",
+        "count",
+        "find",
+        "tipos"
+      ]
+    },   
+
+    
+    {
+      "principalType": "ROLE",
+      "principalId": "consultas",
+      "permission": "ALLOW",
+      "property":[
+        "generar",
+        "count",
+        "find",
+        "tipos"
+      ]
+    },      
+
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "produccion",
+      "permission": "ALLOW"
+    },
+
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "distribucion",
+      "permission": "ALLOW"
+    },
+    {      
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "jefe_distribucion",
+      "permission": "ALLOW"
+    },
+
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "ejecutivo",
+      "permission": "ALLOW"
+    },
+
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "agente",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "cliente",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {},
+  "scope": {
+    "limit": 10
+  }
+}

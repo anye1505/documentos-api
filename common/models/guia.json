@@ -1,0 +1,108 @@
+{
+    "name": "guia",
+    "plural": "guias",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+      "validateUpsert": true,
+      "postgresql": {
+        "schema": "proceso",
+        "table":"guia"
+      }
+    },
+    "properties": {
+      "gui_id": { "type": "number", "id": true },
+      "gui_numero": { "type": "number" },
+      "suc_id": { "type": "number" },
+      "sam_id": { "type": "number" },
+      "men_id": { "type": "number" },
+      "gue_id": { "type": "number" },
+      "gui_fecha_creacion": { "type": "Date" },
+      "gui_usuario_crea": { "type": "number" },
+      "gui_usuario_modifica": { "type": "number" },
+      "gui_fecha_modifica": { "type": "Date" },
+      "gui_fecha_entrega": { "type": "Date" },
+      "gui_usuario_entrega": { "type": "number" },
+      "gui_fecha_cierre": { "type": "Date" },
+      "gui_nro_docs": { "type": "number" },
+      "gui_nro_docs_cerrado": { "type": "number" },
+      "gui_nro_docs_pendiente": { "type": "number" },
+      "gui_pasaje": { "type": "number" },
+      "gui_fecha_eliminado": { "type": "Date" },
+      "gui_usuario_elimina": { "type": "number" }
+    },
+    "validations": [],
+    "relations": {  
+    },
+    "acls": [
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "$everyone",
+        "permission": "ALLOW"
+      },
+      {      
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "$authenticated",
+        "permission": "ALLOW"
+      },
+      {      
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "administrador",
+        "permission": "ALLOW"
+      },
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "produccion",
+        "permission": "ALLOW"
+      },
+  
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "distribucion",
+        "permission": "DENY",
+        "property":[
+        "eliminar"
+        ]
+      },
+      {      
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "jefe_distribucion",
+        "permission": "ALLOW"
+      },
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "ejecutivo",
+        "permission": "DENY",
+        "property":[
+        "eliminar"
+        ]
+      },
+
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "agente",
+        "permission": "DENY",
+        "property":[
+          "eliminar"
+          ]
+      },
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "cliente",
+        "permission": "ALLOW"
+      }
+    ],
+    "methods": {},
+    "scope": {
+      "limit": 10
+    }
+}

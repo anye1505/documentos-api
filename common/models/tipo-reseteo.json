@@ -1,0 +1,85 @@
+{
+    "name": "tipoReseteo",
+    "plural": "tipoReseteos",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+      "validateUpsert": true,
+      "postgresql": {
+        "schema": "proceso",
+        "table":"tipo_reseteo"
+      }
+    },
+    "properties": {
+      "tir_id": {
+        "type": "number",
+        "id": true
+      },
+      "tir_descripcion": {
+        "type": "string"
+      }
+    },
+    "validations": [],
+    "relations": {  
+    },
+    "acls": [
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "$everyone",
+        "permission": "DENY"
+      },
+      {      
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "$authenticated",
+        "permission": "ALLOW"
+  
+      },
+
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "produccion",
+        "permission": "ALLOW"
+      },
+  
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "distribucion",
+        "permission": "ALLOW"
+      },
+
+      {      
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "jefe_distribucion",
+        "permission": "ALLOW"
+      },
+  
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "ejecutivo",
+        "permission": "ALLOW"
+      },
+
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "agente",
+        "permission": "ALLOW"
+      },
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "cliente",
+        "permission": "ALLOW"
+      }
+    ],
+    "methods": {},
+    "scope": {
+      "limit": 10
+    }
+}

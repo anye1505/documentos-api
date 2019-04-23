@@ -1,0 +1,80 @@
+{
+    "name": "gestion",
+    "plural": "gestiones",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+      "validateUpsert": true,
+      "postgresql": {
+        "schema": "proceso",
+        "table":"gestion"
+      }
+    },
+    "properties": {
+      "ges_id": { "type": "number", "id": true },
+      "ges_nombre": { "type": "string" },
+      "tig_id": { "type": "number" },
+      "tig_nombre": { "type": "string" }
+    },
+    "validations": [],
+    "relations": {  
+    },
+    "acls": [
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "$everyone",
+        "permission": "ALLOW"
+      },
+      {      
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "$authenticated",
+        "permission": "ALLOW"
+      },
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "produccion",
+        "permission": "ALLOW"
+      },
+  
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "distribucion",
+        "permission": "ALLOW"
+      },
+
+      {      
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "jefe_distribucion",
+        "permission": "ALLOW"
+      },
+  
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "ejecutivo",
+        "permission": "ALLOW"
+      },
+
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "agente",
+        "permission": "ALLOW"
+      },
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "cliente",
+        "permission": "ALLOW"
+      }
+    ],
+    "methods": {},
+    "scope": {
+      "limit": 10
+    }
+}

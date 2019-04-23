@@ -1,0 +1,14 @@
+{
+  "postgres": {
+    "host": "74.208.177.97",
+    "port": 5432,
+    "url": "",
+    "database": "documentos",
+    "password": "D0cum3ntos#_",
+    "name": "postgresql",
+    "user": "postgres",
+    "connector": "postgresql"
+  }
+}
+
+

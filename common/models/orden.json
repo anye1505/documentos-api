@@ -1,0 +1,251 @@
+{
+  "name": "orden",
+  "plural": "ordenes",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "postgresql": {
+      "schema": "proceso"
+    }
+  },
+  "properties": {
+
+    "ord_id": {
+      "type": "number",
+      "id": true
+    },
+    "prd_id": {
+      "type": "number"
+    },
+    "conf_id": {
+      "type": "number"
+    },
+    "pro_corte": {
+      "type": "string"
+    },
+    "pro_nombre_archivo_in":{
+      "type":"string"
+    },
+    "pro_nombre_archivo_out":{
+      "type":"string"
+    },
+    "pro_fecha_inicio_ord":{
+      "type": "Date"
+    },
+    "pro_fecha_fin_ord":{
+      "type": "Date"
+    },
+    "pro_fecha_spr":{
+      "type":"string"
+    },
+    "pro_usuario_spr":{
+      "type":"string"
+    },
+    "pro_nro_docs":{
+      "type":"number"
+    },
+    "pro_nro_con_ubigeo":{
+      "type":"number"
+    },
+    "pro_nro_sin_ubigeo":{
+      "type":"number"
+    },
+    "pro_fecha_fin_ftp_envio":{
+      "type":"string"
+    },
+    "pro_nro_orden_courier":{
+      "type":"number"
+    },
+    "pro_fecha_op_courier":{
+      "type":"string"
+    },
+    "pro_estado":{
+      "type":"number"
+    },
+    "pro_temporal":{
+      "type":"string"
+    },
+    "pro_tipo":{
+      "type":"number"
+    },
+    "emp_id_courier":{
+      "type":"number"
+    },
+    "rdi_id":{
+      "type":"number"
+    },
+    "pro_orden_operador":{
+      "type":"string"
+    },
+    "pro_dist_inicio":{
+      "type":"date"
+    },
+    "pro_dist_dias":{
+      "type":"number"
+    },
+    "pro_dist_fin":{
+      "type":"date"
+    },
+    "pro_estado_temp":{
+      "type":"string"
+    },
+    "tca_id":{
+      "type":"number"
+    },
+    "tet_id":{
+      "type":"number"
+    },
+    "emp_id_operador":{
+      "type":"number"
+    },
+    "suc_id":{
+      "type":"number",
+      "required":false
+    },
+    "usu_id":{
+      "type":"number",
+      "required":false      
+    },
+    "ord_ruta_salida":{
+      "type":"string",
+      "required":false      
+    }
+  },
+  "validations": [],
+  "relations": {
+    "configuracion": {
+      "model":"configuracion",
+      "type": "belongsTo",
+      "foreignKey":"conf_id"
+    },
+    "ordenEstado": {
+      "model":"ordenEstado",
+      "type": "belongsTo",
+      "foreignKey":"pro_estado"
+    },
+    "producto": {
+      "model":"producto",
+      "type": "belongsTo",
+      "foreignKey":"prd_id"
+    },
+    "operador": {
+      "type": "belongsTo",
+      "model": "empresa",
+      "foreignKey": "emp_id_operador"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    },
+
+
+    {
+      "principalType": "ROLE",
+      "principalId": "administrador",
+      "permission": "ALLOW",
+      "property":[
+        "buscar",
+        "contar",
+        "generarOP",
+        "consumo",
+        "upload",
+        "uploadBase",
+        "generarEtiqueta",
+        "generarOPapido",
+        "recepcionArchivo",
+        "basePrioritario",
+        "eliminar",
+        "exportarListaOS",
+        "consultaMultiple"
+      ]
+    },   
+
+    
+    {
+      "principalType": "ROLE",
+      "principalId": "consultas",
+      "permission": "ALLOW",
+      "property":[
+        "buscar",
+        "contar",
+        "upload",
+        "uploadBase",
+        "generarOP",
+        "generarEtiqueta",
+        "generarOPapido",
+        "recepcionArchivo",
+        "basePrioritario",
+        "eliminar",
+        "consultaMultiple"
+      ]
+    }  ,
+
+    
+    {
+      "principalType": "ROLE",
+      "principalId": "enotriaWs",
+      "permission": "ALLOW",
+      "property":[
+        "enotriaWs"
+      ]
+    },
+
+
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "produccion",
+      "permission": "ALLOW"
+    },
+
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "distribucion",
+      "permission": "ALLOW"
+    },
+
+    {      
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "jefe_distribucion",
+      "permission": "ALLOW"
+    },
+
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "ejecutivo",
+      "permission": "ALLOW"
+    },
+
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "agente",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "cliente",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {},
+  "scope": {
+    "order": "pro_fecha_inicio_ord desc",
+    "limit": 10
+  }
+}

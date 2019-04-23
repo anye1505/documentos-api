@@ -1,0 +1,90 @@
+{
+    "name": "noClasificado",
+    "plural": "noClasificados",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+      "validateUpsert": true,
+      "postgresql": {
+        "schema": "proceso",
+        "table":"clasificacion_detalle"
+      }
+    },
+    "properties": {
+      "cld_id": { "type": "number", "id": true },
+      "cla_id": { "type": "number" },
+      "doc_id": { "type": "number" },
+      "nod_id": { "type": "number" },
+      "emp_id_courier": { "type": "number" },
+      "suc_id": { "type": "number" },
+      "ubi_id_distrito": { "type": "number" }
+    },
+    "validations": [],
+    "relations": {  
+    },
+    "acls": [
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "$everyone",
+        "permission": "ALLOW"
+      },
+      {      
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "$authenticated",
+        "permission": "ALLOW",
+        "property":[
+          "consultaDetalle",
+          "consultaMultiple",
+          "consultarCodigoBarra",
+          "grabarCabecera",
+          "grabarDetalle"
+        ]
+      },
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "produccion",
+        "permission": "ALLOW"
+      },
+  
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "distribucion",
+        "permission": "ALLOW"
+      },
+
+      {      
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "jefe_distribucion",
+        "permission": "ALLOW"
+      },
+  
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "ejecutivo",
+        "permission": "ALLOW"
+      },
+
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "agente",
+        "permission": "ALLOW"
+      },
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "cliente",
+        "permission": "ALLOW"
+      }
+    ],
+    "methods": {},
+    "scope": {
+      "limit": 10
+    }
+}

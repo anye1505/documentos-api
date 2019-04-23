@@ -1,0 +1,109 @@
+{
+  "name": "user",
+  "plural": "users",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "realmRequired": true,
+    "realmDelimiter": ":",
+    "validateUpsert": true,
+    "postgresql": {
+      "schema": "seguridad"
+    }
+  },
+  "properties": {
+    "name":{
+      "type":"string",
+      "required":true
+    },
+    "surname":{
+      "type":"string",
+      "required":true
+    },
+    "suc_id":{
+      "type":"number",
+      "required":true
+    },
+    "emp_id":{
+      "type":"number",
+      "required":true
+    }
+  },
+  "hidden": ["password", "verificationToken"],
+  "protected": ["email","password","verificationToken"],
+  "validations": [],
+  "relations": {
+    "accessTokens": {
+      "type": "hasMany",
+      "model": "accessToken",
+      "foreignKey": "userId",
+      "options": {
+        "disableInclude": true
+      }
+    },
+    "sucursal": {
+      "type": "hasOne",
+      "model": "sucursal",
+      "foreignKey": "suc_id"
+    },
+    "empresa": {
+      "type": "hasOne",
+      "model": "empresa",
+      "foreignKey": "emp_id"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY",
+      "property": "create"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "administrador",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "administrador",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "cliente",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {},
+  "scope": {
+    "limit": 10
+  }
+}
